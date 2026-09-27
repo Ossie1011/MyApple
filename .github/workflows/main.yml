@@ -1,0 +1,41 @@
+name: Build Tweak
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y curl git perl python3 build-essential fakeroot rsync clang
+
+      - name: Install Theos
+        run: |
+          git clone --recursive https://github.com/theos/theos.git $HOME/theos
+          echo "THEOS=$HOME/theos" >> $GITHUB_ENV
+
+      - name: Get iOS SDK
+        run: |
+          git clone --depth=1 https://github.com/theos/sdks.git $HOME/sdks-tmp
+          mkdir -p $HOME/theos/sdks
+          cp -r $HOME/sdks-tmp/iPhoneOS15.*.sdk $HOME/theos/sdks/ 2>/dev/null || \
+          cp -r $HOME/sdks-tmp/iPhoneOS16.*.sdk $HOME/theos/sdks/
+
+      - name: Build package
+        run: |
+          export THEOS=$HOME/theos
+          make package FINALPACKAGE=1
+
+      - name: Upload .deb as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: MyBatteryNow-deb
+          path: packages/*.deb
