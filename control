@@ -1,0 +1,11 @@
+Package: com.yourname.mybatterynow
+Name: My Battery Now
+Version: 1.0
+Architecture: iphoneos-arm
+Description: Set your battery percentage to whatever you want.
+Maintainer: Your Name
+Author: Your Name
+Section: Tweaks
+Depends: firmware (>= 15.0), mobilesubstrate
+Icon: file:///Library/Application Support/MyBatteryNow/icon.png
+Depiction: https://yourwebsite.com/depictions/mybatterynow.html
