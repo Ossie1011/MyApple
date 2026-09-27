@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+
+		<dict>
+			<key>cell</key><string>PSGroupCell</string>
+			<key>label</key><string>My Battery Now</string>
+			<key>footerText</key><string>Set the number shown as your battery percentage.</string>
+		</dict>
+
+		<dict>
+			<key>cell</key><string>PSSwitchCell</string>
+			<key>label</key><string>Enable Fake Percentage</string>
+			<key>key</key><string>MBNEnabled</string>
+			<key>default</key><true/>
+			<key>defaults</key><string>com.yourname.mybatterynow</string>
+			<key>PostNotification</key><string>com.yourname.mybatterynow/reload</string>
+		</dict>
+
+		<dict>
+			<key>cell</key><string>PSSliderCell</string>
+			<key>label</key><string>Percentage</string>
+			<key>key</key><string>MBNPercentage</string>
+			<key>default</key><integer>100</integer>
+			<key>min</key><integer>1</integer>
+			<key>max</key><integer>100</integer>
+			<key>showValue</key><true/>
+			<key>defaults</key><string>com.yourname.mybatterynow</string>
+			<key>PostNotification</key><string>com.yourname.mybatterynow/reload</string>
+		</dict>
+
+		<dict>
+			<key>cell</key><string>PSGroupCell</string>
+			<key>label</key><string>Appearance</string>
+		</dict>
+
+		<dict>
+			<key>cell</key><string>PSMultiValueCell</string>
+			<key>label</key><string>Text Colour</string>
+			<key>key</key><string>MBNTextColor</string>
+			<key>default</key><string>System</string>
+			<key>validTitles</key>
+			<array>
+				<string>System</string>
+				<string>White</string>
+				<string>Black</string>
+				<string>Green</string>
+				<string>Red</string>
+				<string>Orange</string>
+				<string>Blue</string>
+			</array>
+			<key>validValues</key>
+			<array>
+				<string>System</string>
+				<string>White</string>
+				<string>Black</string>
+				<string>Green</string>
+				<string>Red</string>
+				<string>Orange</string>
+				<string>Blue</string>
+			</array>
+			<key>defaults</key><string>com.yourname.mybatterynow</string>
+			<key>PostNotification</key><string>com.yourname.mybatterynow/reload</string>
+		</dict>
+
+		<dict>
+			<key>cell</key><string>PSGroupCell</string>
+		</dict>
+
+		<dict>
+			<key>cell</key><string>PSLinkCell</string>
+			<key>label</key><string>About</string>
+			<key>file</key><string>About</string>
+		</dict>
+
+		<dict>
+			<key>cell</key><string>PSLinkCell</string>
+			<key>label</key><string>Credits &amp; Author</string>
+			<key>file</key><string>Credits</string>
+		</dict>
+
+		<dict>
+			<key>cell</key><string>PSLinkCell</string>
+			<key>label</key><string>Help</string>
+			<key>file</key><string>Help</string>
+		</dict>
+
+	</array>
+	<key>title</key><string>My Battery Now</string>
+</dict>
+</plist>
